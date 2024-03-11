@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <h1>All tags
+  <a style="float: right" href="{% url 'todo:tag-create'%}"> + </a>
+    </h1>
+  </h1>
   <table class="table">
       <tr>
         <th>Tag</th>
@@ -12,6 +16,12 @@
         <tr>
           <td>
               {{ tag.name }}
+          </td>
+          <td>
+            <a href="{% url "todo:tag-update" pk=tag.id%}">UPDATE</a>
+          </td>
+          <td>
+            <a href="{% url "todo:tag-delete" pk=tag.id%}">DELETE</a>
           </td>
         </tr>
       {% endfor %}
