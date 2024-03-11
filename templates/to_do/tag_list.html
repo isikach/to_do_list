@@ -2,15 +2,17 @@
 
 {% block content %}
   <h1>All tags
-  <a style="float: right" href="{% url 'todo:tag-create'%}"> + </a>
+  <a style="float: right" href="{% url 'todo:tag-create'%}" class="btn btn-primary"> Add new tag </a>
     </h1>
   </h1>
-  <table class="table">
+  <table class="table table-striped">
+    <thead class="thead-dark">
       <tr>
         <th>Tag</th>
         <th>Update</th>
         <th>Delete</th>
       </tr>
+    </thead>
 
       {% for tag in tag_list_all %}
         <tr>
@@ -18,10 +20,14 @@
               {{ tag.name }}
           </td>
           <td>
-            <a href="{% url "todo:tag-update" pk=tag.id%}">UPDATE</a>
+            <a href="{% url "todo:tag-update" pk=tag.id%} " class="btn btn-warning">
+              UPDATE
+            </a>
           </td>
           <td>
-            <a href="{% url "todo:tag-delete" pk=tag.id%}">DELETE</a>
+            <a href="{% url "todo:tag-delete" pk=tag.id%}" class="btn btn-danger">
+              DELETE
+            </a>
           </td>
         </tr>
       {% endfor %}
