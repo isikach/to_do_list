@@ -16,3 +16,5 @@ class TaskDetailView(DetailView):
 
 class TagListView(ListView):
     model = Tag
+    context_object_name = "tag_list_all"
+    template_name = "to_do/tag_list.html"
